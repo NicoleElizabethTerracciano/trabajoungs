@@ -1,13 +1,12 @@
-# capa de transporte/comunicación con otras interfaces o sistemas externos.
 
 import requests
-from ...config import config
+from ...config.config import STUDENTS_REST_API_URL 
 
 # comunicación con la REST API.
 # este método se encarga de "pegarle" a la API y traer una lista de objetos JSON.
 def getAllImages():
-    raw_data = requests.get(config.STUDENTS_REST_API_URL).json()
-
+    raw_data = requests.get(STUDENTS_REST_API_URL).json()
+    
     json_collection = []
 
     # si la búsqueda no arroja resultados, entonces retornamos una lista vacía de elementos.
@@ -21,5 +20,7 @@ def getAllImages():
 
         except KeyError: 
             pass
-
+    print(json_collection)
     return json_collection
+
+

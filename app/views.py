@@ -1,7 +1,7 @@
 # capa de vista/presentación
 
 from django.shortcuts import redirect, render
-from .layers.services import services
+from .layers.services.services import getAllImages 
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 
@@ -10,7 +10,7 @@ def index_page(request):
 
 # esta función obtiene 2 listados: uno de las imágenes de la API y otro de favoritos, ambos en formato Card, y los dibuja en el template 'home.html'.
 def home(request):
-    images = []
+    images = getAllImages()
     favourite_list = []
 
     return render(request, 'home.html', { 'images': images, 'favourite_list': favourite_list })
@@ -57,3 +57,32 @@ def deleteFavourite(request):
 def exit(request):
     logout(request)
     return redirect('home')
+
+from .layers.transport.transport import getAllImages
+from django.shortcuts import render
+
+
+def home(request):
+    # Llamamos a la función que obtiene las imágenes desde la API
+    images = getAllImages()  # Esto obtiene las imágenes
+
+    favourite_list = []  # Aquí agregarás la lógica para obtener los favoritos del usuario (si está implementado)
+
+    # Pasamos las variables al template correctamente
+    return render(request, 'home.html', {'images': images, 'favourite_list': favourite_list}) 
+
+
+def home(request):
+    try:
+        # Llamar al servicio para obtener las imágenes
+        images = getAllImages()
+    except Exception as e:
+        # Manejar errores en la llamada al servicio
+        images = []
+        print(f"Error al obtener las imágenes: {e}")
+
+    # Lista de favoritos (esto se implementará según tu lógica)
+    favourite_list = []  # Esto puede depender del usuario
+
+    # Renderizar el template con las imágenes obtenidas
+    return render(request, 'home.html', {'images': images, 'favourite_list': favourite_list})

@@ -1,18 +1,60 @@
-# capa de servicio/lógica de negocio
-
-from ..transport import transport
+from ..transport.transport import getAllImages as getAllImagesTransport
 from ..persistence import repositories
 from ..utilities import translator
 from django.contrib.auth import get_user
+import random
 
-# función que devuelve un listado de cards. Cada card representa una imagen de la API de HP.
+
 def getAllImages():
-    # debe ejecutar los siguientes pasos:
-    # 1) traer un listado de imágenes crudas desde la API (ver transport.py)
-    # 2) convertir cada img. en una card.
-    # 3) añadirlas a un nuevo listado que, finalmente, se retornará con todas las card encontradas.
-    # ATENCIÓN: contemplar que los nombres alternativos, para cada personaje, deben elegirse al azar. Si no existen nombres alternativos, debe mostrar un mensaje adecuado.
-    pass
+    for image in images:
+        images = getAllImagesTransport()  # Llamada al transport layer para obtener los datos
+        cards=[]
+        card = crearCard(image)  # Usar una función auxiliar para estructurar la card
+        cards.append(card)
+
+    # Paso 3: Retornar el listado de cards generadas
+    return cards
+
+
+def crearCard(image):
+    """
+    Convierte un objeto de imagen en una card. Si existen nombres alternativos, selecciona uno al azar.
+    """
+    # Extracción de datos básicos con valores por defecto si no existen
+    name = image.get("name", "Sin nombre")
+    id = image.get("id", "Sin ID")
+    alternate_names = image.get("alternate_names", [])
+    
+    # Selección de un nombre alternativo o mensaje en caso de no haber ninguno
+    if alternate_names:
+        alternate_name = random.choice(alternate_names)
+    else:
+        alternate_name = "No hay nombres alternativos disponibles"
+
+    # Estructura de la card
+    return {
+        "id": id,
+        "name": name,
+        "alternate_name": alternate_name,
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # función que filtra según el nombre del personaje.
 def filterByCharacter(name):
@@ -60,3 +102,5 @@ def getAllFavourites(request):
 def deleteFavourite(request):
     favId = request.POST.get('id')
     return repositories.delete_favourite(favId) # borramos un favorito por su ID
+
+
