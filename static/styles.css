@@ -1,36 +1,84 @@
+
+
+/* ================== ESTILOS GENERALES ================== */
 body {
-    color: #566787;
-    background: #f5f5f5;
+    color: black; /* Color del texto de toda la aplicación */
+    background-color: #89cae9;
     font-family: 'Roboto', sans-serif;
+    
 }
 
+/*Texto Buscador de Personajes de Harry Potter*/
+.text-center{
+    font-family: 'Harry Potter', sans-serif;
+    padding-top: 15px; /* Baja el texto */
+    padding-bottom: 15px; /* Ajusta el espacio inferior */
+}
+
+
+/*Titulo de las Cards con fuente Harry Potter*/
+.card-title,.navbar-brand{
+    font-family: 'Harry Potter', sans-serif;
+}
+
+/* Aplica la fuente de Harry Potter a los botones */
+.harry-potter-font {
+    font-family: 'Harry Potter', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+
+.d-flex{
+    font-family: 'Harry Potter', sans-serif;
+}
+
+/*Fuente del header  */
+.navbar .nav-link ,.nav-item{
+    color: black !important; /* Texto negro para contraste */
+    font-family: 'Harry Potter', sans-serif;
+
+}
+
+
+/* ================== TABLAS Y ESTRUCTURA ================== */
+
+/* Ajusta el margen de las tablas */
 .table-responsive {
     margin: 30px 0;
 }
 
+/* Define el estilo del contenedor de la tabla */
 .table-wrapper {
-    min-width: 1000px;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    min-width: 1000px; /* Ancho mínimo para la tabla */
+    background: #fff; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05); /* Sombra ligera */
+    font-family: 'Roboto' , sans-serif;
 }
 
+/* ================== TÍTULOS Y ENCABEZADOS ================== */
+
+/* Estilo del título de la tabla */
 .table-title {
     padding-bottom: 10px;
     margin: 0 0 10px;
     min-width: 100%;
 }
-
+/* Ajusta el tamaño del texto en los títulos */
 .table-title h2 {
     margin: 8px 0 0;
     font-size: 22px;
 }
+/* ================== BÚSQUEDA ================== */
 
+/* Contenedor del buscador */
 .search-box {
     position: relative;
     float: right;
 }
-
+/* Estilo del input del buscador */
 .search-box input {
     height: 34px;
     border-radius: 20px;
@@ -38,69 +86,76 @@ body {
     border-color: #ddd;
     box-shadow: none;
 }
-
+/* Cambia el color del borde cuando el input está enfocado */
 .search-box input:focus {
-    border-color: #3FBAE4;
+    border-color: blanchedalmond;
 }
 
+
+/* Estilo del icono dentro del buscador */
 .search-box i {
-    color: #a0a5b1;
+    color: #a0a5b1; /* Color gris */
     position: absolute;
-    font-size: 19px;
+    font-size: 19px; /* Tamaño del icono */
     top: 8px;
     left: 10px;
 }
 
+/* ================== ESTILOS DE TABLA ================== */
+
+/* Define el color de los bordes de la tabla */
 table.table tr th,
 table.table tr td {
     border-color: #e9e9e9;
 }
-
+/* Alterna colores en filas impares */
 table.table-striped tbody tr:nth-of-type(odd) {
     background-color: #fcfcfc;
 }
-
+/* Cambia el color de fondo al pasar el mouse sobre una fila */
 table.table-striped.table-hover tbody tr:hover {
     background: #f5f5f5;
 }
-
+/* Ajusta los iconos dentro de los encabezados de la tabla */
 table.table th i {
     font-size: 13px;
     margin: 0 5px;
     cursor: pointer;
 }
 
+/* Ajusta el ancho de la última columna */
 table.table td:last-child {
     width: 130px;
 }
 
+/* ================== BOTONES Y ENLACES ================== */
+
+/* Estilos generales para los enlaces de la tabla */
 table.table td a {
     color: #a0a5b1;
     display: inline-block;
     margin: 0 5px;
 }
 
+/* Estilos para el botón de "Ver" */
 table.table td a.view {
     color: #03A9F4;
 }
 
-table.table td a.edit {
-    color: #FFC107;
-}
-
-table.table td a.delete {
-    color: #E34724;
-}
-
+/* Tamaño de los iconos dentro de la tabla */
 table.table td i {
     font-size: 19px;
 }
 
+/* ================== PAGINACIÓN ================== */
+
+/* Ajusta la posición de la paginación */
 .pagination {
     float: right;
     margin: 0 0 5px;
 }
 
+/* Estilos generales de los botones de paginación */
 .pagination li a {
     border: none;
     font-size: 95%;
@@ -114,29 +169,38 @@ table.table td i {
     padding: 0;
 }
 
+/* Cambia el color al pasar el mouse sobre los botones de paginación */
 .pagination li a:hover {
     color: #666;
 }
 
+/* Estilos del botón de la página activa */
 .pagination li.active a {
     background: #03A9F4;
 }
 
+/* Cambio de color al pasar el mouse sobre la página activa */
 .pagination li.active a:hover {
     background: #0397d6;
 }
 
+/* Estilos para los iconos de paginación deshabilitados */
 .pagination li.disabled i {
     color: #ccc;
 }
 
+/* Ajusta el tamaño de los iconos de paginación */
 .pagination li i {
     font-size: 16px;
-    padding-top: 6px
+    padding-top: 6px;
 }
 
+/* ================== TEXTO ADICIONAL ================== */
+
+/* Ajusta el texto de información */
 .hint-text {
     float: left;
     margin-top: 6px;
     font-size: 95%;
 }
+

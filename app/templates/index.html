@@ -1,9 +1,18 @@
-{% extends 'header.html' %} {% block content %} {% if request.user.is_authenticated %}
-<h2 class="text-center">Bienvenido {{ user.username | upper }}!</h2>
-{% else %}
-<h2 class="text-center">Bienvenido!</h2>
-{% endif %}
-<p class="text-center">
-    Mirá las imágenes desde <a href="{% url 'home' %}">este link.</a>
-</p>
+{% extends 'header.html' %}
+
+{% load static %}
+
+{% block content %}
+<!---AGREGAMOS IMAGEN-->
+<div class="text-center" style="background-image: url('{% static 'harrypotter2.jpg' %}'); background-size: cover; background-position: center; height: 100vh; color: white; padding-top: 20px;">
+    {% if request.user.is_authenticated %}
+        <h2 class="text-center">Bienvenido {{ user.username | upper }}!</h2>
+    {% else %}
+        <h2 class="text-center">Bienvenido!</h2>
+    {% endif %}
+    <p class="text-center">
+        Mirá las imágenes desde 
+        <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Este link</a>
+    </p>
+</div>
 {% endblock %}

@@ -16,3 +16,4 @@ urlpatterns = [
 
     path('exit/', views.exit, name='exit'),
 ]
+

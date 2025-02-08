@@ -1,6 +1,7 @@
 
 import requests
 from ...config.config import STUDENTS_REST_API_URL 
+# Importa la URL de la API desde un archivo de configuración (config.py).
 
 # comunicación con la REST API.
 # este método se encarga de "pegarle" a la API y traer una lista de objetos JSON.
@@ -24,3 +25,9 @@ def getAllImages():
     return json_collection
 
 
+
+
+
+# Consulta una API REST y obtiene una lista de imágenes.
+# Maneja errores si la API falla.
+# Retorna los datos filtrados en una lista json_collection.

@@ -1,17 +1,62 @@
-{% extends 'header.html' %} {% block content %}
-<div class="login-form" style="text-align: center;">
-    <form action="" method="POST" style="display: inline-block;">
-        {% csrf_token %}
-        <h2 class="text-center">Inicio de sesión</h2>
-        <div class="form-group" style="margin-bottom: 5%;">
-            <input type="text" name="username" id="username" class="form-control" placeholder="Usuario" required="required">
-        </div>
-        <div class="form-group" style="margin-bottom: 5%;">
-            <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required="required">
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
-        </div>
-    </form>
+{% extends 'header.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Contenedor principal del login (centrado sin afectar header/footer) -->
+<div class="content-wrapper">
+    <div class="login-form">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h2 class="text-center">Inicio de sesión</h2>
+
+            <div class="form-group" style="margin-bottom: 5%;">
+                <input type="text" name="username" id="username" class="form-control" placeholder="Usuario" required>
+            </div>
+            <div class="form-group" style="margin-bottom: 5%;">
+                <input type="password" name="password" id="password" class="form-control" placeholder="Contraseña" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Ingresar</button>
+            </div>
+        </form>
+    </div>
 </div>
+
+<!-- Estilos específicos para la página de login -->
+<style>
+    /* Contenedor del login que ocupa el espacio entre el header y el footer */
+    .content-wrapper {
+        background-size: cover; 
+        background-position: center; 
+        height: 100vh;
+        color: white; 
+        padding-top: 20px;
+        background-image: url('{% static "harrypotter1.jpg" %}');
+        
+    }
+
+    
+/* Estilo del formulario de login */
+.login-form {
+    background-color: rgba(128, 128, 128, 0.6); /* Gris transparente */
+    padding: 40px;
+    border-radius: 10px; /* Bordes redondeados */
+    border: 2px solid #cccccc; /* Borde gris claro */
+    font-family: 'Harry Potter', sans-serif;
+    width: 350px; /* Ancho más pequeño */
+    max-width: 90%; /* Para asegurarse de que no ocupe más de un 90% de la pantalla */
+    min-height: 250px; /* Altura mínima */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%; /* Centrado vertical */
+    left: 50%; /* Centrado horizontal */
+    transform: translate(-50%, -50%); /* Ajuste para el centrado perfecto */
+}
+
+    
+</style>
+
 {% endblock %}

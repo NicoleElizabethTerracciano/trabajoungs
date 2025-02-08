@@ -24,3 +24,11 @@ class Card:
     # Método hashCode.
     def __hash__(self):
         return hash((self.name, self.gender, self.house, self.actor))
+
+
+
+#Método	Función
+#__init__	Crea una Card con nombre, casa, imagen, etc.
+#__str__	Devuelve una representación en texto de la Card.
+#__eq__	Permite comparar si dos Card son iguales (basado en nombre, género, casa y actor).
+#_hash__	Permite usar Card en set y dict para evitar duplicados.

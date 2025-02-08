@@ -120,3 +120,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # VARIABLES QUE INTEGRAN LOS REDIRECTS DE AUTH
 LOGIN_REDIRECT_URL = 'index-page'
 LOGOUT_REDIRECT_URL = 'index-page'
+
+STATIC_URL = '/static/images/'
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
