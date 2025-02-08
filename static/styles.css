@@ -35,6 +35,9 @@ body {
 }
 
 /*Fuente del header  */
+.navbar {
+    background-color: #fff;
+}
 .navbar .nav-link ,.nav-item{
     color: black !important; /* Texto negro para contraste */
     font-family: 'Harry Potter', sans-serif;
